@@ -1,0 +1,1 @@
+alert("Welcome to my site and say hello to this obnoxious alert!");
