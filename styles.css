@@ -1,12 +1,26 @@
+/*clear any browser-specific inherited css settings*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*display flex and flex-wrap set to wrap were the key settings here*/
 .container {
-  /*width: 100vw;
-  height: 100vh;*/
+  display: flex;
+  flex-wrap: wrap;
+
+  height: 100vh;
+  width: 100vw;
 
   font-family: "Courier New";
   font-weight: bold;
@@ -14,34 +28,16 @@ body {
 
   background-image: url("background.jpg");
   background-color: #cccccc;
-
-  display: flex;
-  flex-direction: row;
-
-  /*grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 80px 1fr 100px;*/
+  background-size: cover;
 
   padding: 50px;
   box-sizing: border-box;
 }
 
+/*set flex to 25% so photo will be 1/4th of the screen on the left*/
 .photo {
   flex: 25%;
   justify-content: center;
-}
-
-#navbar {
-  flex: 75%;
-  justify-content: center;
-}
-
-h1, h2 {
-  flex: 100%;
-  justify-content: center;
-}
-
-.container div {
-  padding: 10px;
 }
 
 img.rounded {
@@ -54,12 +50,41 @@ img.rounded {
   border-radius: 50%;
 }
 
-#navbar ul,
-li {
+/*flex 75% and flex-end to right-align the navbar and have it be 3/4ths the width of the screen*/
+#navbar {
+  flex: 75%;
+  justify-content: flex-end;
+}
+
+/*padding left is to push your links further to the right side of the screen*/
+#navbar ul {
+  padding-left: 35%;
+}
+
+/*float left to have the li items appear side by side instead of one under the other*/
+#navbar li {
   list-style: none;
+  margin: 5%;
+  text-align: right;
+  float: left;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+}
+
+/*flex 100% for the rest of the items to keep them full width of screens*/
+h1,
+h2 {
+  flex: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .bottomtext {
+  flex: 100%;
   color: #383838;
-  text-align: right;
+  text-align: center;
 }
